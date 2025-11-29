@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="px-3 py-5">
+{% if erreur %}
+    <p>Erreur : {{erreur}}</p>
+{% endif %}
+
+    <form method="POST" action = "{{url_for('register')}}">
+        <div>
+            <label>User</label>
+            <input name="user" type = "text" placeholder="Enter your id here">
+        </div>
+        <div>
+            <label>Password</label>
+            <input name="password" type = "password" placeholder="Enter your password here">
+        </div>
+        <div>
+            <label>Comfirm Password</label>
+            <input name="confirm_password" type = "password" placeholder="Confirm your password">
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

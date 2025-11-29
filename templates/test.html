@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        {% for test in test %}<!--boucle dans la bdd pour afficher les document 1 à 1 -->
+        <article>
+            <h2>{{test['titreTest']}}</h2><!--affiche la ligne titreTest d'un document de la base de donnée -->
+            <p>{{test['phraseTest']}}</p><!--affiche la ligne phraseTest d'un document de la base de donnée -->
+        </article>
+        {% endfor %}
+    </section>
+</body>
+</html>
+<!-- /!\ /!\ /!\ -->
+<!--Pour acceder à ce template dans la base de données rajoute  /index  à la suite de l'adresse dans la barre de recherche de ton navigateur-->

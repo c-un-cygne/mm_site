@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{%if erreur%}
+{{erreur}}
+{%endif%}
+    <main class="bg-cyan-200">
+        <div>
+            <h2 class="grid place-content-center text-xl">Information</h2>
+            <p class="grid place-content-center text-xl">Here you shall find some information and activity around the popular video game Celeste. Log in to publish or to respond to publication.</p>
+        </div>
+        <br/>
+        <section class="grid grid-cols-4 grid-rows-2 gap-20 p-5">
+            {% for annonce in annonces %}
+                <article class="p-3 bg-white shadow-2xl border-teal-200 border-solid border-2 rounded-lg">
+                    <h2 class="text-lg text-center pb-1">{{annonce["Title"]}}</h2>
+                    <!-- <img src="/static/Images/download.jpeg"> -->
+                    <p>{{annonce["Description"]}}</p>
+                    <footer class="flex justify-end text-xs">{{annonce['User']}}</footer>
+                </article>
+            {% endfor %}
+        </section>
+
+{% endblock %}

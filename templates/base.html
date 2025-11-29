@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header class="bg-[#6A89A7] flex justify-between p-16 ">
+        <h1 class="font-bold text-2xl">Celeste discusion</h1>
+        {%if session['user']%}
+        <h1 class="flex space-x-10 text-lg font-semibold">{{session['user']}}</h1>
+        {%endif%}
+        <form action="/search" method="get" class="">
+            <input type="text" name="q" placeholder="Recherche" class="">
+            <button type="submit" class="">🔎</button>
+        </form>
+        <nav class="flex space-x-10 text-lg font-semibold">
+            <ul class="flex flex-rox gap-5">
+                <li><button class="px-4 py-1 hover:bg-sky-500 active:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-500 rounded-full"><a href="/">Menu</a></button></li>
+                {%if session["user"]%}
+                <li><button class="px-4 py-1 hover:bg-sky-500 active:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-500 rounded-full"><a href="/publish" class="active">Publish</a></button></li>
+                <li><button class="px-4 py-1 hover:bg-sky-500 active:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-500 rounded-full"><a href="/logout" class="active">Disconnect</a></button></li>
+                {%else%}
+                <li><button class="px-4 py-1 hover:bg-sky-500 active:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-500 rounded-full"><a href="/login" class="active">Log In</a></button></li>
+                <li><button class="px-4 py-1 hover:bg-sky-500 active:bg-sky-600 focus:outline-none focus:ring focus:ring-sky-500 rounded-full"><a href="/register" class="active">Sign Up</a></button></li>
+                {%endif%}
+            </ul>
+        </nav>
+    </header>
+    <main class="bg-[#BDDDFC]">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-[#88BDF2]">
+        <h2>Patrick 2025</h2>
+        <p>contactme@contactme.com</p>
+    </footer>
+</body>
+</html>

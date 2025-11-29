@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+{%block content%}
+<div class="px-3 py-5">
+{%if erreur%}
+{{erreur}}
+{%endif%}
+    <form method="POST" action = "{{url_for('publish')}}">
+        <div>
+            <label>Title:</label>
+            <br>
+            <input name="title" type = "text" placeholder="Article title">
+        </div>
+        <div>
+            <label>Image (non mandatory):</label>
+            <br>
+            <input name="image" type = "text" placeholder="Image url">
+        </div>
+        <div>
+            <label>Content:</label>
+            <br>
+            <textarea name="content" cols="100" placeholder="Article content"></textarea>
+        </div>
+        <div>
+            <button type="submit">Publish</button>
+        </div>
+    </form>
+</div>
+{%endblock%}
